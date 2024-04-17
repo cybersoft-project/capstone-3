@@ -1,0 +1,29 @@
+.banner_home {
+  .slick-prev,
+  .slick-next {
+    font-size: 45px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-200%);
+    transition: color 0.3s ease;
+
+    &::before {
+      font-size: 0;
+    }
+    &:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    &.slick-prev {
+      left: 10px;
+    }
+    &.slick-next {
+      right: 20px;
+    }
+  }
+}
