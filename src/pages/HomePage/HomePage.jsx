@@ -1,10 +1,11 @@
 import React from 'react';
+import ScrollNavigation from '../../layout/ScrollNavigation/ScrollNavigation';
 
 const HomePage = () => {
   return (
-    <div>
-      homepage
-    </div>
+    <>
+      <ScrollNavigation />
+    </>
   );
 };
 

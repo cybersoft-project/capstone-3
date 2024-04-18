@@ -6,6 +6,9 @@ export default {
       container: {
         center: true,
       },
+      colors:{
+        primary: "rgb(255, 203, 5)"
+      }
     },
   },
   plugins: [],
