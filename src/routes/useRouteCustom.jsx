@@ -1,14 +1,14 @@
-import React from 'react';
-import { useRoutes } from 'react-router-dom';
-import HomeTemplate from '../templates/HomeTemplate/HomeTemplate';
-import HomePage from '../pages/HomePage/HomePage';
-import { path } from '../common/path';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import DetaiPage from '../pages/DetaiPage/DetaiPage';
-import BookingPage from '../pages/BookingPage/BookingPage';
-import SignUpPage from '../pages/SignupPage.jsx/SignUpPage';
-import QuanLyPhim from '../pages/AdminPage/QuanLyPhim';
-import DemoPage from '../pages/DemoPage/DemoPage';
+import { useRoutes } from 'react-router-dom'
+import HomeTemplate from '../templates/HomeTemplate/HomeTemplate'
+import HomePage from '../pages/HomePage/HomePage'
+import { path } from '../common/path'
+import LoginPage from '../pages/LoginPage/LoginPage'
+import DetaiPage from '../pages/DetaiPage/DetaiPage'
+import BookingPage from '../pages/BookingPage/BookingPage'
+import SignUpPage from '../pages/SignupPage.jsx/SignUpPage'
+import QuanLyPhim from '../pages/AdminPage/QuanLyPhim'
+import DemoPage from '../pages/DemoPage/DemoPage'
+import LoginRegister from '../pages/LoginRegister/LoginRegister'
 // đây là một customHook hỗ trợ quản lí các tuyến đường của trang
 const useRouteCustom = () => {
   const route = useRoutes([
@@ -22,38 +22,40 @@ const useRouteCustom = () => {
         },
         {
           path: path.detail,
-          element: <DetaiPage />
+          element: <DetaiPage />,
         },
         {
           path: path.booking,
-          element: <BookingPage />
-        }
+          element: <BookingPage />,
+        },
       ],
-
     },
     {
       path: path.login,
-      element: <LoginPage />
+      element: <LoginPage />,
     },
     {
       path: path.signup,
-      element: <SignUpPage />
+      element: <SignUpPage />,
     },
     {
       path: path.quanLyPhim,
-      element: <QuanLyPhim />
+      element: <QuanLyPhim />,
     },
     {
       path: path.themPhim,
-      element: <themPhim />
+      element: <themPhim />,
     },
     {
       path: path.demo,
-      element: <DemoPage />
-    }
+      element: <DemoPage />,
+    },
+    {
+      path: path.loginRegister,
+      element: <LoginRegister />,
+    },
+  ])
+  return route
+}
 
-  ]);
-  return route;
-};
-
-export default useRouteCustom;
+export default useRouteCustom
