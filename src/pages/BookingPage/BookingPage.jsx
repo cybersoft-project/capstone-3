@@ -1,8 +1,10 @@
-import React from 'react'
+import QuickBook from '../../components/QuickBook/QuickBook'
 
 const BookingPage = () => {
   return (
-    <div>BookingPage</div>
+    <div>
+      <QuickBook />
+    </div>
   )
 }
 
