@@ -1,7 +1,6 @@
-import React from 'react';
-import Header from '../../layout/Header/Header';
-import { Outlet } from 'react-router-dom';
-import Footer from '../../layout/Footer/Footer';
+import Header from '../../layout/Header/Header'
+import { Outlet } from 'react-router-dom'
+import Footer from '../../layout/Footer/Footer'
 
 const HomeTemplate = () => {
   return (
@@ -10,7 +9,7 @@ const HomeTemplate = () => {
       <Outlet />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default HomeTemplate;
+export default HomeTemplate
