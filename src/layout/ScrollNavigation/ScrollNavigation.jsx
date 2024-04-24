@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Block from '../../components/Block/Block'
+import ListMovie from '../ListMovie/ListMovie';
 
 const ScrollNavigation = () => {
     const [activeButton, setActiveButton] = useState('nowShowing');
@@ -49,7 +50,8 @@ const ScrollNavigation = () => {
             </nav>
             <div>
 
-                <Block id="a">Hello</Block>
+                <ListMovie id="now-showing">Hello</ListMovie>
+                <ListMovie id="coming-soon">Hello</ListMovie>
                 <Block id="b" />
                 <Block id="c" />
             </div>

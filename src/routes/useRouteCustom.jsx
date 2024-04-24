@@ -4,7 +4,7 @@ import HomeTemplate from '../templates/HomeTemplate/HomeTemplate';
 import HomePage from '../pages/HomePage/HomePage';
 import { path } from '../common/path';
 import LoginPage from '../pages/LoginPage/LoginPage';
-import DetaiPage from '../pages/DetaiPage/DetaiPage';
+import DetaiPage from '../pages/DetailPage/Detail';
 import BookingPage from '../pages/BookingPage/BookingPage';
 import SignUpPage from '../pages/SignupPage.jsx/SignUpPage';
 import QuanLyPhim from '../pages/AdminPage/QuanLyPhim';
