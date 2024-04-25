@@ -3,11 +3,13 @@ import { Outlet } from 'react-router-dom'
 import Footer from '../../layout/Footer/Footer'
 
 const HomeTemplate = () => {
+  
   return (
     <>
       <Header />
       <Outlet />
       <Footer />
+      
     </>
   )
 }
