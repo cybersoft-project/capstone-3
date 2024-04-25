@@ -24,7 +24,7 @@ const ScrollNavigation = () => {
                                 {label: 'comingSoon', id: "coming-soon"}, 
                                 {label: 'experiences', id: "c"}, 
                                 {label: 'trailers', id: "d"}, 
-                                {label: 'offers', id: "e"},
+                                {label: 'offers', id: "offer"},
                             ].map((button, index) => (
 
                                 <li key={button.label} className=' m-0'>

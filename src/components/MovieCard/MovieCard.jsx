@@ -11,7 +11,7 @@ const MovieCard = ({language = "English", data, toggle,openTrailerModal, trailer
     { url: "aXE43XtUlX4" }
   ]
   return (
-    <div className="max-w-sm rounded overflow-hidden bg-white group cursor-pointer ">
+    <div className="max-w-sm rounded overflow-hidden bg-white group cursor-pointer">
       <div className="w-full max-h-64 h-2/3 overflow-hidden relative">
         <img className="w-full object-cover h-full" src={hinhAnh} alt={tenPhim} />
         <div className="absolute w-full inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 flex text-5xl justify-center items-center opacity-0 group-hover:opacity-100">
