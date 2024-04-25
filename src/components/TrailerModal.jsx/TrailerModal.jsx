@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-const TrailerModal = () => {
+const TrailerModal = ({isTrailerModalOpen, videoID, closeModal}) => {
     const modalRef = useRef(null);
-
+   
     // Xử lý khi click bên ngoài modal
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -11,7 +11,7 @@ const TrailerModal = () => {
             }
         };
 
-        if (isModalOpen) {
+        if (isTrailerModalOpen) {
             window.addEventListener('click', handleClickOutside);
         }
 
@@ -22,8 +22,8 @@ const TrailerModal = () => {
 
     return (
         <div
-            className={`fixed inset-0 bg-black bg-opacity-50 ${isModalOpen ? 'flex' : 'hidden'} items-center justify-center p-4 transition-opacity duration-300`}
-            style={{ opacity: isModalOpen ? 1 : 0 }}
+            className={`fixed inset-0 bg-black bg-opacity-50 ${isTrailerModalOpen ? 'flex' : 'hidden'} items-center justify-center p-4 transition-opacity duration-300`}
+            style={{ opacity: isTrailerModalOpen ? 1 : 0 }}
         >
             <div ref={modalRef} className="bg-white p-6 rounded-lg relative">
                 {/* Nút đóng modal */}
@@ -35,7 +35,7 @@ const TrailerModal = () => {
                 <iframe
                     width="560"
                     height="315"
-                    src={`https://www.youtube.com/embed/${videoId}`}
+                    src={`https://www.youtube.com/embed/${videoID}`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

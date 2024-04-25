@@ -21,7 +21,7 @@ const DemoPage = () => {
   const modalRef = useRef(null);  // Tạo một ref để tham chiếu tới phần tử modal
 
   // Hàm xử lý toggle
-  // Hàm xử lý toggle
+ 
   const toggle = () => {
     if (!isToggled) {
       setIsToggled(true);

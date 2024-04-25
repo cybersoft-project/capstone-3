@@ -3,12 +3,27 @@ import MovieDetailModal from '../MovieDetailModal/MovieDetailModal';
 import { formatDate } from '../../utils/Date';
 
 // MovieCard component
-const MovieCard = ({ tenPhim, ngayKhoiChieu, language= "English", hinhAnh,moTa, toggle}) => {
-  
+const MovieCard = ({language = "English", data, toggle,openTrailerModal, trailerID }) => {
+  const{tenPhim, ngayKhoiChieu, hinhAnh, moTa, } = data;
+  const trailerDemoArr = [
+    { url: "Ades3pQbeh8" },
+    { url: "QczGoCmX-pI" },
+    { url: "aXE43XtUlX4" }
+  ]
   return (
-    
-    <div className="max-w-sm rounded overflow-hidden bg-white ">
-      <div className="w-full max-h-64 h-2/3 overflow-hidden"><img className="w-full object-cover h-full" src={hinhAnh} alt={tenPhim} /></div>
+    <div className="max-w-sm rounded overflow-hidden bg-white group cursor-pointer ">
+      <div className="w-full max-h-64 h-2/3 overflow-hidden relative">
+        <img className="w-full object-cover h-full" src={hinhAnh} alt={tenPhim} />
+        <div className="absolute w-full inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-opacity duration-300 flex text-5xl justify-center items-center opacity-0 group-hover:opacity-100">
+          {/* Nội dung bạn muốn hiển thị khi hover trên phần tử con */}
+        
+          <button
+            onClick={() => {
+              openTrailerModal(trailerID)
+            }}
+          ><i className="fa-duotone fa-circle-play" style={{ '--fa-primary-color': "#fff", '--fa-secondary-color': "#cfcfcf", '--fa-secondary-opacity': '0.6' }}></i></button>
+        </div>
+      </div>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 truncate">{tenPhim}</div>
         <p className="text-gray-700 text-base truncate">
@@ -20,13 +35,13 @@ const MovieCard = ({ tenPhim, ngayKhoiChieu, language= "English", hinhAnh,moTa, 
         <button className="bg-primary hover:bg-opacity-90 text-black font-semibold py-2 px-4 truncate text-sm rounded">
           Book Tickets
         </button>
-        <button 
-          onClick={()=>{toggle({tenPhim, ngayKhoiChieu, language, hinhAnh, moTa})}}
+        <button
+          onClick={() => { toggle(data) }}
           className="float-right text-black hover:text-gray-600 border border-gray-500 rounded-lg py-1 px-2">
-         <i className="fa-light fa-circle-info"></i>
+          <i className="fa-light fa-circle-info"></i>
         </button>
       </div>
-      
+
     </div>
   );
 };

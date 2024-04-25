@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 
-const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRef, title, duration, genre, language, releaseDate, synopsis, cast, crew }) => {
+const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRef, duration, genre, language, releaseDate, movieActiveInfo}) => {
+    const{moTa, tenPhim} = movieActiveInfo;
     return (
         <div className="">
             {isToggled && ( // Sử dụng short-circuit evaluation để render điều kiện
-                <div ref={modalRef} className={`${animation} fixed left-0 bottom-0 transform translate-x-1/2 w-screen h-3/4 bg-primary rounded-t-3xl`}>
-                    <div className="bg-white shadow-lg rounded-lg p-6">
-                        <div className="flex flex-col">
+                <div ref={modalRef} className="h-screen bg-gray-600 bg-opacity-30 w-screen fixed left-0 top-0 z-50">
+                    <div className={`bg-white shadow-lg p-6 rounded-2xl ${animation} fixed left-0 bottom-0 transform w-screen h-3/4 rounded-t-3xl`}>
+                        <div ref={modalRef}  className="flex flex-col container">
                             {/* Movie Header */}
                             <div className="flex justify-between items-center mb-4">
-                                <h1 className="text-3xl font-bold">{title}</h1>
+                                <h1 className="text-3xl font-bold">{tenPhim}</h1>
                                 <button className="text-xl" onClick={toggle}>Close X</button>
                             </div>
 
@@ -22,9 +23,9 @@ const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRe
                             </div>
 
                             {/* Synopsis */}
-                            <p className="mb-4">{synopsis}</p>
+                            <p className="mb-4">{moTa}</p>
 
-                            {/* Cast */}
+                            {/* Cast
                             <div>
                                 <h2 className="text-2xl font-semibold mb-2">Cast</h2>
                                 <div className="flex space-x-4">
@@ -38,7 +39,7 @@ const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRe
                             </div>
 
                             {/* Crew */}
-                            <div className="mt-4">
+                            {/* <div className="mt-4">
                                 <h2 className="text-2xl font-semibold mb-2">Crew</h2>
                                 <div className="flex space-x-4">
                                     {crew.map((member, index) => (
@@ -48,7 +49,7 @@ const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRe
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

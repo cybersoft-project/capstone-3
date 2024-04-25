@@ -20,8 +20,8 @@ const ScrollNavigation = () => {
                     <div className="hidden justify-between items-center w-full sm:flex md:w-auto md:order-1" id="navbar-sticky">
                         <ul className="flex md:flex-row md:mt-0 md:text-sm md:font-medium ">
                             {[
-                                {label: 'nowShowing',id: "a"}, 
-                                {label: 'comingSoon', id: "b"}, 
+                                {label: 'nowShowing',id: "now-showing"}, 
+                                {label: 'comingSoon', id: "coming-soon"}, 
                                 {label: 'experiences', id: "c"}, 
                                 {label: 'trailers', id: "d"}, 
                                 {label: 'offers', id: "e"},
@@ -48,13 +48,7 @@ const ScrollNavigation = () => {
                     </div>
                 </div>
             </nav>
-            <div>
-
-                <ListMovie id="now-showing">Hello</ListMovie>
-                <ListMovie id="coming-soon">Hello</ListMovie>
-                <Block id="b" />
-                <Block id="c" />
-            </div>
+           
         </div>
     )
 }
