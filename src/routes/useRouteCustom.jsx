@@ -22,7 +22,7 @@ const useRouteCustom = () => {
         },
         {
           path: path.detail,
-          element: <DetaiPage />,
+          element: <DetailPage />,
         },
         {
           path: path.booking,
