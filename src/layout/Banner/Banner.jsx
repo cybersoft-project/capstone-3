@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Carousel } from "antd";
-import { quanLyPhimServ } from "../../services/quanLyPhimServ";
-import "./Banner.scss";
+import React, { useState, useEffect } from 'react';
+import { Carousel } from 'antd';
+import { quanLyPhimServ } from '../../services/quanLyPhimServ';
+import './Banner.scss';
 
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
@@ -43,12 +43,15 @@ const Banner = () => {
       >
         {arrBanner.map((item, index) => {
           return (
-            <div key={index} className="h-[80vh]">
+            <div key={index} className="h-[80vh] item relative">
               <img
                 className="w-full h-full object-cover"
                 src={item.hinhAnh}
                 alt=""
               />
+              <button className="absolute top-[50%] left-[50%] py-2 px-5 rounded bg-white">
+                <i className="fa-solid fa-play"></i>
+              </button>
             </div>
           );
         })}
