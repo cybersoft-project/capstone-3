@@ -6,5 +6,6 @@ export const path = {
   signup: '/signup',
   login: '/login',
   quanLyPhim: '/admin/quanLyPhim',
-  themPhim: '/admin/themPhim'
-};
+  themPhim: '/admin/themPhim',
+  loginRegister: '/login-register',
+}

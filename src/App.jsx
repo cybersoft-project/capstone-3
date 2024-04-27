@@ -4,6 +4,7 @@ import { createContext } from 'react';
 export const AlertContext = createContext();
 function App() {
   const [messageApi, contextHolder] = message.useMessage();
+  
   const myRoutes = useRouteCustom();
   const handleAlert = (type, content)=>{
     messageApi.open({
@@ -11,6 +12,7 @@ function App() {
       content,
     })
   }
+
   return <AlertContext.Provider value={{handleAlert}}>   
     {contextHolder}
     {myRoutes}
