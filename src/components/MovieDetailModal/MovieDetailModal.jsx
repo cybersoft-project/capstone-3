@@ -5,7 +5,7 @@ const MovieDetailModal = React.forwardRef(({toggle,isToggled, animation, modalRe
     return (
         <div className="">
             {isToggled && ( // Sử dụng short-circuit evaluation để render điều kiện
-                <div ref={modalRef} className="h-screen bg-gray-600 bg-opacity-30 w-screen fixed left-0 top-0 z-50">
+                <div className="h-screen bg-gray-600 bg-opacity-30 w-screen fixed left-0 top-0 z-50">
                     <div className={`bg-white shadow-lg p-6 rounded-2xl ${animation} fixed left-0 bottom-0 transform w-screen h-3/4 rounded-t-3xl`}>
                         <div ref={modalRef}  className="flex flex-col container">
                             {/* Movie Header */}

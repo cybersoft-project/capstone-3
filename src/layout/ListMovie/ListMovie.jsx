@@ -32,7 +32,9 @@ const ListMovie = ({ id, label }) => {
     // Thêm sự kiện nghe click vào document
     useEffect(() => {
         const handleClickOutside = (event) => {
+            
             if (modalRef.current && !modalRef.current.contains(event.target)) {
+              
                 setAnimation('animate-slide-down');
                 setTimeout(() => {
                     setIsToggled(false);

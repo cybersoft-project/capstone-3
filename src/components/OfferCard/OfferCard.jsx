@@ -1,16 +1,20 @@
 import React from 'react';
 
-const OfferCard = ({img}) => {
+const OfferCard = ({src, toggle}) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-green-600 text-white">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
         <div>
-        <img src={img} alt="" />
+        <img src={src} alt="" />
         </div>
       <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Valid till: Mon, Sep 30, 2024</span>
+        <h3 className='font-semibold'>UNLIMITED REFILL OFFER</h3>
+        
       </div>
-      <div className="px-6 pt-4 pb-2">
-        <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+      <div className="px-6 pt-4 pb-2 flex items-center justify-between">
+      <small className="block">Valid till: Mon, Sep 30, 2024</small>
+        <button 
+        onClick={toggle}
+        className="bg-primary text-black font-semibold py-1 px-3 rounded">
           View
         </button>
       </div>
