@@ -33,7 +33,6 @@ const Banner = () => {
     quanLyPhimServ
       .layDanhSachBanner()
       .then((res) => {
-        // console.log(res)
         setArrBanner(res.data.content);
       })
       .catch((err) => {
@@ -52,6 +51,7 @@ const Banner = () => {
   return (
     <div className="banner_home">
       <Carousel
+        autoplay={true}
         prevArrow={<PrevArrow />}
         nextArrow={<NextArrow />}
         arrows={true}
