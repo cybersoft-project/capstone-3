@@ -81,7 +81,7 @@ const Trailer = () => {
                                 <span>
                                   {moment(item.ngayKhoiChieu).format(
                                     'hh-mm - MMMM Do YYYY'
-                                  )}{' '}
+                                  )}
                                 </span>
                                 <span>&bull;</span>{' '}
                                 <span>VietNam &bull; Ho Chi Minh City</span>
@@ -105,7 +105,7 @@ const Trailer = () => {
                           </div>
                           <div className="flex justify-end w-[700px] h-[450px] ">
                             <img
-                              className="w-full h-[450px] object-center"
+                              className="w-full h-[450px] object-center "
                               src={item.hinhAnh}
                               alt=""
                             />

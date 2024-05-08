@@ -5,7 +5,11 @@ export const path = {
   demo: '/demo',
   signup: '/signup',
   login: '/login',
-  quanLyPhim: '/admin/quanLyPhim',
-  themPhim: '/admin/themPhim',
+  admin: {
+    base: '/admin',
+    quanLyPhim: '/admin/quanLyPhim',
+    danhSachNguoiDung: '/admin/list-user',
+    themPhim: '/admin/themPhim',
+  },
   loginRegister: '/login-register',
-}
+};
