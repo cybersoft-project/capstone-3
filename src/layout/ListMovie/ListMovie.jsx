@@ -83,7 +83,6 @@ const ListMovie = ({ id, label }) => {
             <h2 className="text-2xl font-bold leading-tight text-gray-900 my-8 text-center">{label}</h2>
             <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 place-items-center sm:place-items-stretch">
                 {movieList.map((movie, index) => {
-                    console.log(movie);
                     const trailerID = getYouTubeVideoId(movie.trailer)
                     return (
 

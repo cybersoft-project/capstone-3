@@ -4,12 +4,17 @@ let data;
 
 const initialState = {
   arrSeat: [],
+  activeFilmImg: '',
+  arrConfirmSeats: ["A1"],
 }
 
 const initReducer = createSlice({
   name: 'init',
   initialState,
   reducers: {
+    setActiveFilm: (state, {type, payload})=>{
+      state.activeFilmImg = payload;
+    },
     updateSeat: (state, {type, payload})=>{
       state.arrSeat = [...payload]
     },
@@ -22,11 +27,16 @@ const initReducer = createSlice({
       newArrSeat[axis].danhSachGhe[cot-1] = {...newArrSeat[axis].danhSachGhe[cot-1]}
       newArrSeat[axis].danhSachGhe[cot-1].daDat = bool;
       state.arrSeat = newArrSeat;
+    },
+    setConfirmSeat: (state, {type, payload})=>{
+      state.arrConfirmSeats = payload
     }
+    
+
     
   }
 });
 
-export const {updateSeat, updateArrSeat} = initReducer.actions
+export const {updateSeat, updateArrSeat, setActiveFilm} = initReducer.actions
 
 export default initReducer.reducer

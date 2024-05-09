@@ -2,9 +2,10 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateArrSeat, updateSeat } from '../../redux/slice/initReducer';
+import "./Seat.scss"
 
 const Seat = () => {
-    const {arrSeat, arrSelectedSeat} = useSelector(reducer=>reducer.initReducer);
+    const { arrSeat, arrConfirmSeats } = useSelector(reducer => reducer.initReducer);
     const dispatch = useDispatch();
     useEffect(() => {
         const response = axios({
@@ -12,27 +13,26 @@ const Seat = () => {
             method: 'GET'
         })
         response.then((resolve) => {
-            console.log("seat", resolve)
             dispatch(updateSeat(resolve.data))
-           
+
         }).catch(error => {
             throw error;
         })
 
     }, []);
-   
-    const findRowIndex = (row)=>{
-        return arrSeat.findIndex(item=>item.hang == row);
+
+    const findRowIndex = (row) => {
+        return arrSeat.findIndex(item => item.hang == row);
     }
-    const datChoAction = ({hang, cot, bool})=>{
+    const datChoAction = ({ hang, cot, bool }) => {
         const rowIndex = findRowIndex(hang)
-       
+
         const updateSeat = [...arrSeat];
-        dispatch(updateArrSeat({bool, hang, cot, arrSeat}))
+        dispatch(updateArrSeat({ bool, hang, cot, arrSeat }))
         // dispatch(updateSeat(updateSeat));
     }
     // datChoHandling(true, "A", 1);
-  
+
     return (
         <div className="container col-span-8">
             {/* {console.log('render', arrSeat)} */}
@@ -53,19 +53,20 @@ const Seat = () => {
                         <tbody>
                             {/* {console.log("render -x", arrSeat)} */}
                             {
-                                arrSeat?.map(({hang, danhSachGhe}, index)=>{
+                                arrSeat?.map(({ hang, danhSachGhe }, index) => {
 
                                     return <tr key={index}>
                                         <td>{hang}</td>
-                                        {danhSachGhe.map(({soGhe, gia,daDat}, index)=>{
+                                        {danhSachGhe.map(({ soGhe, gia, daDat }, index) => {
+                                            let isConfirm = arrConfirmSeats.includes(soGhe);
+                                            console.log(isConfirm)
                                             return (<td key={index}>
                                                 {!hang && (<p>{soGhe}</p>)}
                                                 {hang && (
-                                                    <input type="checkbox" className="seats"  checked={daDat} onChange={()=>{
-                                                        datChoAction({hang, cot: index+1, bool: !daDat})
-                                            
-                                                    }}/>
-                                                )} 
+                                                    <input type="checkbox" className={`seats ${isConfirm?'redBox':''}`} disabled={isConfirm?false:true} checked={daDat} onChange={() => {
+                                                        datChoAction({ hang, cot: index + 1, bool: !daDat })
+                                                    }} />
+                                                )}
                                             </td>)
                                         })}
                                     </tr>
