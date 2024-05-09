@@ -34,7 +34,7 @@ const MovieDetailModal = React.forwardRef(
                     Close <i className="fa-solid fa-xmark text-red-600"></i>
                   </button>
                 </div>
-
+                
                 {/* Movie Info */}
                 <div className="mb-4">
                   <p>

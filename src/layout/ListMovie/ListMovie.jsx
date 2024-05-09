@@ -36,6 +36,7 @@ const ListMovie = ({ id, label }) => {
           setIsToggled(false);
         }, 500); // Thời gian đợi tương ứng với duration của animation
       }
+
     };
     document.addEventListener('mousedown', handleClickOutside);
   }, []);
