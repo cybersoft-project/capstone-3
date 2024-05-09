@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Tag } from 'antd';
 import { quanLyUser } from '../../services/quanLyUser';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  handleTurnOffLoading,
+  handleTurnOnLoading,
+} from '../../redux/slice/loadingSlice';
+import Loading from '../../components/Loading/Loading';
 
 const DanhSachNguoiDung = () => {
   const [arrUser, setArrUser] = useState([]);
@@ -43,14 +49,23 @@ const DanhSachNguoiDung = () => {
       dataIndex: 'soDT',
     },
   ];
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.loadingSlice.isLoading);
   useEffect(() => {
+    dispatch(handleTurnOnLoading());
     quanLyUser
       .layDanhSachNguoiDung()
-      .then((res) => setArrUser(res.data.content))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setTimeout(() => {
+          setArrUser(res.data.content);
+          dispatch(handleTurnOffLoading());
+        }, 1000);
+      })
+      .catch((err) => dispatch(handleTurnOffLoading()));
   }, []);
   return (
     <div>
+      {isLoading && <Loading />}
       <h1 className="text-2xl font-bold text-center pt-1 pb-5">
         Danh sách người dùng
       </h1>

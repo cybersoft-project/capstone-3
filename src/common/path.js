@@ -1,6 +1,6 @@
 export const path = {
   homepage: '/',
-  detail: '/detail',
+  detail: '/detail/:maPhim',
   booking: '/booking',
   demo: '/demo',
   signup: '/signup',

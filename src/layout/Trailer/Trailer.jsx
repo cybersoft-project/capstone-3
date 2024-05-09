@@ -77,13 +77,13 @@ const Trailer = () => {
                                 {item.tenPhim}
                               </h2>
                               <span className="font-medium">
-                                U/A <span>&bull;</span>{' '}
+                                U/A <span>&bull;</span>
                                 <span>
                                   {moment(item.ngayKhoiChieu).format(
                                     'hh-mm - MMMM Do YYYY'
                                   )}
                                 </span>
-                                <span>&bull;</span>{' '}
+                                <span>&bull;</span>
                                 <span>VietNam &bull; Ho Chi Minh City</span>
                                 <br></br>
                                 <span className="leading-3">- {item.moTa}</span>

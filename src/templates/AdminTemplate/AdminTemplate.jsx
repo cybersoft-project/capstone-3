@@ -6,8 +6,14 @@ const { Header, Content, Footer, Sider } = Layout;
 
 const arrMenu = [
   {
-    label: <Link to={path.homepage}>Trang chủ</Link>,
-    icon: <i className="fa-solid fa-house"></i>,
+    key: 'trangChu',
+    type: 'group',
+    children: [
+      {
+        label: <Link to={path.homepage}>Trang chủ</Link>,
+        icon: <i className="fa-solid fa-house"></i>,
+      },
+    ],
   },
   {
     key: 'quanLiPhim',

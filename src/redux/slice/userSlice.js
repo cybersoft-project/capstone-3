@@ -18,31 +18,3 @@ const userSlice = createSlice({
 export const { handleGetValueUserData } = userSlice.actions;
 
 export default userSlice.reducer;
-
-// export const getUserAPIThunk = createAsyncThunk(
-//   'phim/getUserAPIThunk',
-//   async (user, { dispatch }) => {
-//     const res = await quanLyUser.layThongTinNguoiDung();
-//     console.log(user);
-//     return res.data.content;
-//   }
-// );
-
-// const initialState = {
-//   arrUser: [],
-// };
-
-// const userSlice = createSlice({
-//   name: 'user',
-//   initialState,
-//   reducers: {},
-//   extraReducers: (builder) => {
-//     builder.addCase(getUserAPIThunk.fulfilled, (state, action) => {
-//       console.log(action);
-//       state.arrUser = action.payload;
-//     });
-//     builder.addCase(getUserAPIThunk.rejected, (state, action) => {
-//       console.log(action);
-//     });
-//   },
-// });
