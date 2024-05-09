@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Table, Tag } from 'antd';
 import { quanLyPhimServ } from '../../services/quanLyPhimServ';
 import moment from 'moment';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  handleTurnOffLoading,
+  handleTurnOnLoading,
+} from '../../redux/slice/loadingSlice';
+import Loading from '../../components/Loading/Loading';
 
 const QuanLyPhim = () => {
   const [arrPhim, setArrPhim] = useState();
@@ -51,16 +57,25 @@ const QuanLyPhim = () => {
       render: (text, record) => moment(text).format('hh-mm - MMMM Do YYYY'),
     },
   ];
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.loadingSlice.isLoading);
   useEffect(() => {
+    dispatch(handleTurnOnLoading());
     quanLyPhimServ
       .layDanhSachPhim()
       .then((res) => {
-        setArrPhim(res.data.content);
+        setTimeout(() => {
+          setArrPhim(res.data.content);
+          dispatch(handleTurnOffLoading());
+        }, 1000);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        dispatch(handleTurnOffLoading());
+      });
   }, []);
   return (
     <div>
+      {isLoading && <Loading />}
       <h1 className="text-2xl font-bold text-center pt-1 pb-5">
         Danh sách phim
       </h1>

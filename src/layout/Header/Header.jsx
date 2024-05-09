@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { user } = useSelector((state) => state.userSlice)
-  console.log(user)
+  const { user } = useSelector((state) => state.userSlice);
+  // console.log(user)
   const classNameUl =
-    '2xl:bg-[#93c5fd] xl:bg-[#93c5fd] lg:bg-[#93c5fd] md:bg-[white] sm:bg-[white] flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  '
+    '2xl:bg-[#93c5fd] xl:bg-[#93c5fd] lg:bg-[#93c5fd] md:bg-[white] sm:bg-[white] flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ';
   let classNameNav =
-    'block py-2 px-3 rounded md:bg-transparent hover:text-[#8b5cf6] md:p-0'
+    'block py-2 px-3 rounded md:bg-transparent hover:text-[#8b5cf6] md:p-0';
   const checkActive = ({ isActive }) => {
-    return `${classNameNav} ${isActive ? 'text-[#8b5cf6]' : 'text-[black]'}`
-  }
+    return `${classNameNav} ${isActive ? 'text-[#8b5cf6]' : 'text-[black]'}`;
+  };
   return (
     <header className="opacity-75">
       <nav className="bg-[#93c5fd] border-gray-200 ">
@@ -150,7 +150,7 @@ const Header = () => {
         </div>
       </nav>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
