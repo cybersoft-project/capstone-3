@@ -16,7 +16,7 @@ const BookingPage = () => {
         <Payment />
       </div>
       
-      <ImageOverlay imageUrl={activeFilmImg} />
+      {/* <ImageOverlay imageUrl={activeFilmImg} /> */}
     </div>
   )
 }

@@ -38,11 +38,7 @@ const Seat = () => {
 
                 {/* //input fields */}
                 {/* seat availabilty list */}
-                <ul className="seat_w3ls">
-                    <li className="smallBox greenBox">Selected Seat</li>
-                    <li className="smallBox redBox">Reserved Seat</li>
-                    <li className="smallBox emptyBox">Empty Seat</li>
-                </ul>
+               
                 {/* seat availabilty list */}
                 {/* seat layout */}
                 <div className="seatStructure txt-center" style={{ overflowX: 'auto' }}>
@@ -52,15 +48,15 @@ const Seat = () => {
                             {
                                 arrSeat?.map(({ hang, danhSachGhe }, index) => {
 
-                                    return <tr key={index}>
-                                        <td>{hang}</td>
+                                    return <tr key={index} className='flex'>
+                                        <td className='mr-2 text-gray-400 flex items-center'>{hang}</td>
                                         {danhSachGhe.map(({ soGhe, gia, daDat, confirm}, index) => {
                                             // let isConfirm = arrConfirmSeats.includes(soGhe);
                                             // console.log(isConfirm)
-                                            return (<td key={index}>
-                                                {!hang && (<p>{soGhe}</p>)}
+                                            return (<td key={index} className={`mr-1 mb-3 inline-block text-gray-400 text-center relative`}>
+                                                {!hang && (<p className='pb-5 block '>{soGhe}</p>)}
                                                 {hang && (
-                                                    <input type="checkbox" className={`seats ${confirm?'redBox':''}`} disabled={confirm?true:false} checked={daDat} onChange={() => {
+                                                    <input type="checkbox" className={`seats -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute ${confirm?'redBox':''}`} disabled={confirm?true:false} checked={daDat} onChange={() => {
                                                         datChoAction({ hang, cot: index + 1, bool: !daDat })
                                                     }} />
                                                 )}
@@ -70,8 +66,8 @@ const Seat = () => {
                                 })
                             }
                         </tbody></table>
-                    <div className="screen">
-                        <h2 className="wthree">Screen this way</h2>
+                    <div className="screen bg-transparent">
+                        <h2 className=" border-gray-700 bg-primary text-black font-extrabold py-8 rounded-xl">Screen this way</h2>
                     </div>
                     {/* <button>Confirm Selection</button> */}
 

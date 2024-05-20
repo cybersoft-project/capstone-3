@@ -57,7 +57,7 @@ const MovieCard = ({language = "English", data, toggle,openTrailerModal, trailer
         <button 
         onClick={()=>{
           setActiveImage(hinhAnh);
-          navigate('booking')
+          navigate(`/detail/${data.maPhim}`)
         }}
         className="bg-primary hover:bg-opacity-90 text-black font-semibold py-2 px-4 truncate text-sm rounded">
           Book Tickets

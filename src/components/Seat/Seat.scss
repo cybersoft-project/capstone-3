@@ -144,7 +144,7 @@ body {
 .w3ls-reg {
   width: 700px;
   margin: 0 5vw;
-  background: rgba(128, 128, 128, 0.34);
+  
   padding: 3.5vw;
   box-sizing: border-box;
   display: flex;
@@ -277,12 +277,13 @@ h2.wthree {
 
 .greenBox::before {
   content: '';
-  background: Green;
+  background: rgb(255, 203, 5);
+
 }
 
 .redBox::before {
   content: '';
-  background: Red !important;
+  background: gray !important;
 }
 
 .emptyBox::before {
@@ -298,8 +299,7 @@ h2.wthree {
 
 .seats {
     position: relative;
-  border: 1px solid red;
-  background: yellow;
+    visibility: none;
 }
 .seats::before{
     position: absolute;
@@ -351,29 +351,28 @@ input[type='checkbox'] {
 input[type='checkbox']:before {
   display: block;
   content: '';
-  width: 25px;
-  height: 18px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 25px;
   border-radius: 5px;
   /* Safari 3-4, iOS 1-3.2, Android 1.6- */
   -webkit-border-radius: 5px;
   box-sizing: content-box;
   /* Firefox 1-3.6 */
   -moz-border-radius: 5px;
-  vertical-align: middle;
   text-align: center;
 
-  border: 3px solid #ff9800;
-  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
+  box-shadow: inset 1px 1px 3px 0px rgba(0, 0, 0, 0.3),
     0px 1px 0px 0px rgba(255, 255, 255, 0.8);
-  -moz-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 0px 0px rgba(255, 255, 255, 0.8);
-  -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
-    0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+  
   background-color: #ffffff;
 }
 
 input[type='checkbox']:checked:before {
-  background-color: Green;
+  background-color: rgb(255, 203, 5); 
   font-size: 15px;
 }
 
