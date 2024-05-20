@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateArrSeat } from '../../redux/slice/initReducer';
+import { setConfirmSeat, updateArrSeat, updateArrSeatOrigin } from '../../redux/slice/initReducer';
+import { AlertContext } from '../../App';
 
 const Payment = () => {
-  const { arrSeat } = useSelector(reducer => reducer.initReducer);
+  const { arrSeat, arrConfirmSeats } = useSelector(reducer => reducer.initReducer);
+  const {handleAlert} = useContext(AlertContext);
   const dispatch = useDispatch();
   const arrSelectedSeat = arrSeat.reduce((result, current) => {
     const arrSelectedRow = current.danhSachGhe.filter(item => item.daDat == true);
@@ -13,6 +15,23 @@ const Payment = () => {
     const hang = soGhe.charAt(0);
     const cot = soGhe.slice(1)
     dispatch(updateArrSeat({ hang, cot, bool: false, arrSeat }))
+  }
+  const handleBooking = ()=>{
+    const arrSelectedSeatName = arrSelectedSeat.map(seat=>seat.soGhe);
+    const newConfirmSeats = arrConfirmSeats.concat(arrSelectedSeatName);
+    dispatch(setConfirmSeat(newConfirmSeats));
+    handleAlert('success', "Thanh toán thành công, chỗ ngồi của bạn đã được đặt");
+    const newArrSeat = JSON.parse(JSON.stringify(arrSeat));
+    newArrSeat.forEach(obj=>{
+      obj.danhSachGhe.forEach(seat=>{
+        if (newConfirmSeats.includes(seat.soGhe)) {
+          seat.confirm = true;
+        }
+        seat.daDat = false;
+      })
+    })
+
+    dispatch(updateArrSeatOrigin(newArrSeat))
   }
   return (
     <div className='col-span-4 flex justify-center items-center text-2xl text-white'>
@@ -54,23 +73,24 @@ const Payment = () => {
 
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">Tổng</td>
-              <td>{
 
+              <td>
+                {
                 arrSelectedSeat.reduce((result, seat) => {
                   return result + seat.gia
                 }, 0).toLocaleString('vi',{
                   style: 'currency',
                   currency: 'VND'
                 })
-
-
-
-
-              }</td>
+              }
+              </td>
               <td></td>
             </tr>
           </tbody>
         </table>
+        <button 
+        onClick={handleBooking}
+        className='bg-primary hover:bg-opacity-90 text-black font-semibold py-3 px-5 truncate text-sm rounded w-full mt-5'>Thanh toán và đặt chỗ</button>
 
       </div>
 

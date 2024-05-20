@@ -28,6 +28,9 @@ const initReducer = createSlice({
       newArrSeat[axis].danhSachGhe[cot-1].daDat = bool;
       state.arrSeat = newArrSeat;
     },
+    updateArrSeatOrigin: (state, {type, payload})=>{
+      state.arrSeat = payload;
+    },
     setConfirmSeat: (state, {type, payload})=>{
       state.arrConfirmSeats = payload
     }
@@ -37,6 +40,6 @@ const initReducer = createSlice({
   }
 });
 
-export const {updateSeat, updateArrSeat, setActiveFilm} = initReducer.actions
+export const {updateSeat, updateArrSeat, setActiveFilm, setConfirmSeat, updateArrSeatOrigin} = initReducer.actions
 
 export default initReducer.reducer

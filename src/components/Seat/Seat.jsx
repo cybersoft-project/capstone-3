@@ -14,7 +14,6 @@ const Seat = () => {
         })
         response.then((resolve) => {
             dispatch(updateSeat(resolve.data))
-
         }).catch(error => {
             throw error;
         })
@@ -31,8 +30,6 @@ const Seat = () => {
         dispatch(updateArrSeat({ bool, hang, cot, arrSeat }))
         // dispatch(updateSeat(updateSeat));
     }
-    // datChoHandling(true, "A", 1);
-
     return (
         <div className="container col-span-8">
             {/* {console.log('render', arrSeat)} */}
@@ -57,13 +54,13 @@ const Seat = () => {
 
                                     return <tr key={index}>
                                         <td>{hang}</td>
-                                        {danhSachGhe.map(({ soGhe, gia, daDat }, index) => {
-                                            let isConfirm = arrConfirmSeats.includes(soGhe);
-                                            console.log(isConfirm)
+                                        {danhSachGhe.map(({ soGhe, gia, daDat, confirm}, index) => {
+                                            // let isConfirm = arrConfirmSeats.includes(soGhe);
+                                            // console.log(isConfirm)
                                             return (<td key={index}>
                                                 {!hang && (<p>{soGhe}</p>)}
                                                 {hang && (
-                                                    <input type="checkbox" className={`seats ${isConfirm?'redBox':''}`} disabled={isConfirm?false:true} checked={daDat} onChange={() => {
+                                                    <input type="checkbox" className={`seats ${confirm?'redBox':''}`} disabled={confirm?true:false} checked={daDat} onChange={() => {
                                                         datChoAction({ hang, cot: index + 1, bool: !daDat })
                                                     }} />
                                                 )}
@@ -76,7 +73,7 @@ const Seat = () => {
                     <div className="screen">
                         <h2 className="wthree">Screen this way</h2>
                     </div>
-                    <button>Confirm Selection</button>
+                    {/* <button>Confirm Selection</button> */}
 
                 </div>
                 {/* //seat layout */}
