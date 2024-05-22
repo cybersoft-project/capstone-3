@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './DetailPage.scss';
 import { path } from '../../common/path';
 import { Collapse, Divider, Modal, Rate, theme } from 'antd';
@@ -24,6 +24,7 @@ const DetailPage = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [videoSrc, setVideoSrc] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoading = useSelector((state) => state.loadingSlice.isLoading);
   const params = useParams();
   const { token } = theme.useToken();
@@ -33,6 +34,7 @@ const DetailPage = () => {
     borderRadius: token.borderRadiusLG,
     border: 'none',
   };
+  
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(handleTurnOnLoading());
@@ -78,6 +80,10 @@ const DetailPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
+
+  const handleMovingToBookingPage = (theater)=>{
+    navigate('/booking')
+  }
   return (
     <div>
       {isLoading && <Loading />}
@@ -232,6 +238,9 @@ const DetailPage = () => {
                         <div className="flex flex-row items-center gap-3">
                           {phim.lichChieuPhim.map((lichChieu, index) => (
                             <div
+                              onClick={()=>{
+                                handleMovingToBookingPage()
+                              }}
                               className="rounded border-2 border-gray-500 px-5 py-3 hover:bg-gray-200"
                               key={index}
                             >
