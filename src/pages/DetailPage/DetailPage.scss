@@ -69,9 +69,9 @@
             }
           }
           .slider_detail_rate {
-            ul {
+            .custom_rate {
               li {
-                color: #fadb14 !important;
+                color: #fadb14;
               }
             }
           }
@@ -79,4 +79,10 @@
       }
     }
   }
+}
+:where(.css-dev-only-do-not-override-1kuana8).ant-rate .ant-rate-star-first,
+:where(.css-dev-only-do-not-override-1kuana8).ant-rate .ant-rate-star-second {
+  color: rgb(161, 161, 161);
+  transition: all 0.2s;
+  user-select: none;
 }

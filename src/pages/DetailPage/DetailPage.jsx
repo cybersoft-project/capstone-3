@@ -191,9 +191,10 @@ const DetailPage = () => {
                           </span>
                           {arrMovieDetail && arrMovieDetail.danhGia && (
                             <Rate
-                              disabled
+                              className="custom_rate"
                               allowHalf
-                              defaultValue={arrMovieDetail.danhGia}
+                              disabled
+                              value={arrMovieDetail.danhGia / 2}
                             />
                           )}
                         </div>
