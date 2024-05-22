@@ -78,7 +78,6 @@ const DetailPage = () => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
-
   return (
     <div>
       {isLoading && <Loading />}
@@ -186,9 +185,10 @@ const DetailPage = () => {
                           </span>
                           {arrMovieDetail && arrMovieDetail.danhGia && (
                             <Rate
-                              disabled
+                              className="custom_rate"
                               allowHalf
-                              defaultValue={arrMovieDetail.danhGia}
+                              disabled
+                              value={arrMovieDetail.danhGia / 2}
                             />
                           )}
                         </div>
