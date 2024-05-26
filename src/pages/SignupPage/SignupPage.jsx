@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import InputText from '../../components/Input/InputText/InputText';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -6,11 +6,14 @@ import { quanLyUser } from '../../services/quanLyUser';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { AlertContext } from '../../App';
+import { path } from '../../common/path';
 const SignUpPage = () => {
+  // const resetForm = useFormik()
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const { handleAlert } = useContext(AlertContext);
-  const { handleBlur, handleChange, handleSubmit, values, errors, touched} =
+  const { handleBlur, handleChange, handleSubmit, values, errors, touched, resetForm} =
   useFormik({
     initialValues: {
       taiKhoan: '',
@@ -19,16 +22,19 @@ const SignUpPage = () => {
       hoTen: '',
       soDt: '',
     },
-    onSubmit: async values => {
+    onSubmit: async (values, { resetForm }) => {
       console.log(values);
+      resetForm({values:''})  // Clear the form
+      
       // khi sử dụng async await luôn có một try catch bọc lại để bắt các vấn đề về lỗi
       try {
         const res = await quanLyUser.dangKy(values);
         console.log(res);
         handleAlert('success', 'Đăng ký thành công');
-        navigate(path.homepage);
+        navigate( path.loginRegister);
         saveLocalStorage('userData', res.data.content);
         dispatch(handleGetValue(res.data.content));
+        
       } catch (error) {
         console.log(error);
         handleAlert('error', error.response.data.content);
@@ -50,6 +56,7 @@ const SignUpPage = () => {
       ),
     }),
   });
+
   return (
     <div className="formContainer signUp">
     <form onSubmit={handleSubmit}  >
@@ -140,10 +147,12 @@ const SignUpPage = () => {
   </div>
 </div>
 
-      <button className='btn'  type='submit'> Sign Up </button>
+      <button className='btn'  type='submit' > Sign Up </button>
     </form>
   </div>
   )
 }
 
 export default SignUpPage
+
+

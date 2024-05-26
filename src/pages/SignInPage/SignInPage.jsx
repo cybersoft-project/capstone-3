@@ -15,13 +15,13 @@ const SignInPage = () => {
   const dispatch = useDispatch();
   const {handleAlert } = useContext(AlertContext)
   console.log(handleAlert);
-  const { handleBlur, handleChange, handleSubmit, values, errors, touched } =
+  const { handleBlur, handleChange, handleSubmit, values, errors, touched, resetForm} =
   useFormik({
     initialValues: {
       taiKhoan: '',
       matKhau: '',
     },
-    onSubmit: async values => {
+    onSubmit: async (values, { resetForm })=> {
       console.log(values);
       // khi sử dụng async await luôn có một try catch bọc lại để bắt các vấn đề về lỗi
       try {
@@ -31,6 +31,7 @@ const SignInPage = () => {
         navigate(path.homepage);
         saveLocalStorage('userData', res.data.content);
         dispatch(handleGetValueUserData(res.data.content));
+        resetForm();
       } catch (error) {
         console.log(error);
         handleAlert('error', error.response.data.content);
