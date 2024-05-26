@@ -70,8 +70,11 @@ const Header = () => {
               </li>
 
               {user ? (
+               
                 <li>{user.hoTen}</li>
+                
               ) : (
+               
                 <li>
                   <NavLink to="/login-register" className={checkActive}>
                     Login - Register

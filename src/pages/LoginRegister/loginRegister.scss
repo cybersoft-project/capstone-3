@@ -14,6 +14,7 @@
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+  
 }
 .containerLayout {
   background-color: #fff;
@@ -21,9 +22,11 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 768px;
+  width: 70%;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 600px;
+  transform: scale(0.90);
+  margin: auto;
 }
 .containerLayout p {
   font-size: 14px;
@@ -40,23 +43,94 @@
   text-decoration: none;
   margin: 15px 0 10px;
 }
-.containerLayout button {
-  background-color: #512da8;
-  color: #fff;
-  font-size: 12px;
-  padding: 10px 45px;
+// .containerLayout button {
+//   background-color: #512da8;
+//   color: #fff;
+//   font-size: 12px;
+//   padding: 10px 45px;
+//   border: 1px solid transparent;
+//   border-radius: 8px;
+//   font-weight: 600;
+//   letter-spacing: 0.5px;
+//   text-transform: uppercase;
+//   margin-top: 10px;
+//   cursor: pointer;
+// }
+.containerLayout button.hiddenBtn {
+  background-color: #230c5e;
+  border-color: #fff;
   border: 1px solid transparent;
   border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 10px;
-  cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px 45px;
 }
-.containerLayout button.hiddenBtn {
-  background-color: transparent;
-  border-color: #fff;
-  //   cursor: pointer;
+.containerLayout button.hiddenBtn:hover{
+ 
+  box-shadow: rgba(130, 46, 240, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+.btn {
+  margin: 20px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
 }
 .containerLayout form {
   background-color: #fff;
@@ -141,7 +215,7 @@
   height: 100%;
   overflow: hidden;
   transition: all 0.6s ease-in-out;
-  border-radius: 50px 0 0 50px;
+  border-radius: 150px 0 0 100px;
   z-index: 1000;
 }
 .containerLayout.active .toggleContainer {
@@ -170,7 +244,6 @@
   height: 100%;
   display: flex;
   justify-content: center;
-
   align-items: center;
   flex-direction: column;
   padding: 0 30px;
@@ -191,4 +264,28 @@
 }
 .containerLayout.active .toggleRight {
   transform: translateX(200%);
+}
+@media (max-width: 576px) {
+ .containerLayout{
+  width: 100%;
+  overflow: auto;
+ }
+}
+@media (max-width: 768px) {
+  .containerLayout{
+    width: 100%;
+   }
+}
+
+@media (max-width: 992px) {
+  .containerLayout{
+    width: 100%;
+   }
+}
+
+
+@media (max-width: 1200px) {
+  .containerLayout{
+    width: 100%;
+   }
 }

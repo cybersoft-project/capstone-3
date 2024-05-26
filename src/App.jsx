@@ -6,7 +6,7 @@ function App() {
   const [messageApi, contextHolder] = message.useMessage();
 
   const myRoutes = useRouteCustom();
-  const handleAlert = (type, content) => {
+   const handleAlert = (type, content) => {
     messageApi.open({
       type,
       content,
