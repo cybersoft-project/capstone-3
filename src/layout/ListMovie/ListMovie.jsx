@@ -24,8 +24,7 @@ const ListMovie = ({ id, label }) => {
       .then((res) => {
         setMovieList(res.data.content);
       })
-      .catch((error) => {
-      });
+      .catch((error) => {});
   }, []);
   // Thêm sự kiện nghe click vào document
   useEffect(() => {
@@ -36,7 +35,6 @@ const ListMovie = ({ id, label }) => {
           setIsToggled(false);
         }, 500); // Thời gian đợi tương ứng với duration của animation
       }
-
     };
     document.addEventListener('mousedown', handleClickOutside);
   }, []);
@@ -78,7 +76,7 @@ const ListMovie = ({ id, label }) => {
   };
   const closeTrailerModal = () => setIsTrailerModalOpen(false);
   return (
-    <div className="container" style={{ scrollMarginTop: '30vh' }} id={id}>
+    <div style={{ scrollMarginTop: '30vh' }} id={id}>
       <h2 className="text-2xl font-bold leading-tight text-gray-900 my-8 text-center">
         {label}
       </h2>

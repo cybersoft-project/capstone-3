@@ -1,20 +1,21 @@
-import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import MovieDetailModal from '../MovieDetailModal/MovieDetailModal';
+import { formatDate } from '../../utils/Date';
+import { useDispatch } from 'react-redux';
+import { setActiveFilm } from '../../redux/slice/initReducer';
+import { useNavigate } from 'react-router-dom';
 
-const MovieCard = ({
-  language = 'English',
-  data,
-  toggle,
-  openTrailerModal,
-  trailerID,
-}) => {
-  const { maPhim, tenPhim, ngayKhoiChieu, hinhAnh, moTa } = data;
-  const trailerDemoArr = [
-    { url: 'Ades3pQbeh8' },
-    { url: 'QczGoCmX-pI' },
-    { url: 'aXE43XtUlX4' },
-  ];
+// MovieCard component
+const MovieCard = ({language = "English", data, toggle,openTrailerModal, trailerID }) => {
+  const dispatch = useDispatch(reducer=>reducer.initReducer);
   const navigate = useNavigate();
+  const{tenPhim, ngayKhoiChieu, hinhAnh, moTa, } = data;
+  const setActiveImage = (image)=>{
+    if(image){
+      dispatch(setActiveFilm(image));
+    }
+    
+  }
   return (
     <div className="max-w-sm rounded overflow-hidden bg-white group cursor-pointer">
       <div className="w-full  h-2/3 overflow-hidden relative">
@@ -53,7 +54,12 @@ const MovieCard = ({
         <small>{language}</small>
       </div>
       <div className="px-6 pt-4 pb-2 flex items-center justify-between">
-        <button className="bg-primary hover:bg-opacity-90 text-black font-semibold py-2 px-4 truncate text-sm rounded">
+        <button 
+        onClick={()=>{
+          setActiveImage(hinhAnh);
+          navigate(`/detail/${data.maPhim}`)
+        }}
+        className="bg-primary hover:bg-opacity-90 text-black font-semibold py-2 px-4 truncate text-sm rounded">
           Book Tickets
         </button>
         <button

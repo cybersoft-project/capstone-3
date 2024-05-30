@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './DetailPage.scss';
 import { path } from '../../common/path';
 import { Collapse, Divider, Modal, Rate, theme } from 'antd';
@@ -24,6 +24,7 @@ const DetailPage = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [videoSrc, setVideoSrc] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoading = useSelector((state) => state.loadingSlice.isLoading);
   const params = useParams();
   const { token } = theme.useToken();
@@ -33,6 +34,7 @@ const DetailPage = () => {
     borderRadius: token.borderRadiusLG,
     border: 'none',
   };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(handleTurnOnLoading());
@@ -79,6 +81,9 @@ const DetailPage = () => {
     autoplaySpeed: 3000,
   };
 
+  const handleMovingToBookingPage = (theater) => {
+    navigate('/booking');
+  };
   return (
     <div>
       {isLoading && <Loading />}
@@ -92,7 +97,7 @@ const DetailPage = () => {
           <div className="proper_screen relative">
             <div className="line_crumb"></div>
             <div className="movie_detail_slide">
-              <div className="container">
+              <div className="containerssss">
                 <div className="flex flex-col flex-wrap">
                   <div>
                     <div className="detail_food block mb-6">
@@ -186,9 +191,10 @@ const DetailPage = () => {
                           </span>
                           {arrMovieDetail && arrMovieDetail.danhGia && (
                             <Rate
-                              disabled
+                              className="custom_rate"
                               allowHalf
-                              defaultValue={arrMovieDetail.danhGia}
+                              disabled
+                              value={arrMovieDetail.danhGia / 2}
                             />
                           )}
                         </div>
@@ -201,7 +207,7 @@ const DetailPage = () => {
           </div>
         </div>
         <div className="bg-[#f1f1f1]">
-          <div className="container py-5">
+          <div className="containersss py-5">
             <p className="font-bold text-center py-5 text-2xl">
               Lịch chiếu phim
             </p>
@@ -232,6 +238,9 @@ const DetailPage = () => {
                         <div className="flex flex-row items-center gap-3">
                           {phim.lichChieuPhim.map((lichChieu, index) => (
                             <div
+                              onClick={() => {
+                                handleMovingToBookingPage();
+                              }}
                               className="rounded border-2 border-gray-500 px-5 py-3 hover:bg-gray-200"
                               key={index}
                             >
@@ -258,7 +267,7 @@ const DetailPage = () => {
           </div>
         </div>
         <div>
-          <div className="container mb-28">
+          <div className="containerssss mb-28">
             <h3 className="text-xl font-bold py-5">Also Showing</h3>
             <Slider {...settings}>
               {arrMovie

@@ -50,7 +50,7 @@ const Trailer = () => {
 
   return (
     <div className="trailer">
-      <div className="container">
+      <div className="containersss">
         <div className="title py-10">
           <hr className="py-5" />
           <h2 className="font-bold text-xl">Trailers</h2>
