@@ -5,30 +5,28 @@ const Header = () => {
   const { user } = useSelector((state) => state.userSlice);
   // console.log(user)
   const classNameUl =
-    '2xl:bg-[#93c5fd] xl:bg-[#93c5fd] lg:bg-[#93c5fd] md:bg-[white] sm:bg-[white] flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ';
+    ' md:bg-[white] sm:bg-[white] flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  ';
   let classNameNav =
-    'block py-2 px-3 rounded md:bg-transparent hover:text-[#8b5cf6] md:p-0';
+    'block py-2 px-3 rounded md:bg-transparent hover:text-primary md:p-0';
   const checkActive = ({ isActive }) => {
-    return `${classNameNav} ${isActive ? 'text-[#8b5cf6]' : 'text-[black]'}`;
+    return `${classNameNav} ${isActive ? 'text-primary' : 'text-[black]'}`;
   };
   return (
     <header className="opacity-75">
-      <nav className="bg-[#93c5fd] border-gray-200 ">
+      <nav className="bg-white border-gray-200 ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <a
+          <NavLink to="/"
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             {/* Logo header */}
             <img
-              src="./src/assets/img/logo.png"
+              src="/logo.svg"
               className="h-8 rounded-lg"
               alt=""
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-              Capstone 3 - react movie
-            </span>
-          </a>
+           
+          </NavLink>
           <button
             data-collapse-toggle="navbar-dropdown"
             type="button"
@@ -60,12 +58,12 @@ const Header = () => {
             <ul className={classNameUl}>
               <li>
                 <NavLink to="/" className={checkActive}>
-                  Home
+                <i className="fa-regular fa-house"></i> Home
                 </NavLink>
               </li>
               <li>
                 <NavLink to={'/booking'} className={checkActive}>
-                  Booking
+                <i className="fa-regular fa-loveseat"></i> Booking
                 </NavLink>
               </li>
 
@@ -77,7 +75,7 @@ const Header = () => {
                
                 <li>
                   <NavLink to="/login-register" className={checkActive}>
-                    Login - Register
+                  <i class="fa-regular fa-right-to-bracket"></i> Login - Register
                   </NavLink>
                 </li>
               )}
@@ -85,9 +83,9 @@ const Header = () => {
                 <button
                   id="dropdownNavbarLink"
                   data-dropdown-toggle="dropdownNavbar"
-                  className="flex items-center justify-between w-full py-2 px-3 hover:text-[#8b5cf6]  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 md:w-auto "
+                  className="flex items-center justify-between w-full py-2 px-3 hover:text-primary  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 md:w-auto "
                 >
-                  Dropdown{' '}
+                 <i className="fa-regular fa-list-dropdown block mr-2"></i> {' '} Dropdown
                   <svg
                     className="w-2.5 h-2.5 ms-2.5"
                     aria-hidden="true"

@@ -120,7 +120,7 @@ const QuickBook = () => {
 
         {/* button submit for quick book */}
         <div>
-          <button className="bg-yellow-400 px-3 py-2 rounded font-bold">
+          <button className="bg-primary px-3 py-2 rounded font-bold">
             Book
           </button>
         </div>
