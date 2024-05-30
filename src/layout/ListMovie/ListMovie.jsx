@@ -78,7 +78,7 @@ const ListMovie = ({ id, label }) => {
   };
   const closeTrailerModal = () => setIsTrailerModalOpen(false);
   return (
-    <div className="container" style={{ scrollMarginTop: '30vh' }} id={id}>
+    <div className="container flex-col" style={{ scrollMarginTop: '30vh' }} id={id}>
       <h2 className="text-2xl font-bold leading-tight text-gray-900 my-8 text-center">
         {label}
       </h2>
