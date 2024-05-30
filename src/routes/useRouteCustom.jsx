@@ -2,22 +2,24 @@ import { useRoutes } from 'react-router-dom';
 import HomeTemplate from '../templates/HomeTemplate/HomeTemplate';
 import HomePage from '../pages/HomePage/HomePage';
 import { path } from '../common/path';
-import LoginPage from '../pages/LoginPage/LoginPage';
+// import LoginPage from '../pages/LoginPage/LoginPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import BookingPage from '../pages/BookingPage/BookingPage';
 import DemoPage from '../pages/DemoPage/DemoPage';
-import LoginRegister from '../pages/LoginRegister/LoginRegister';
+// import LoginRegister from '../pages/LoginRegister/LoginRegister';
 import AdminTemplate from '../templates/AdminTemplate/AdminTemplate';
 import ThemPhim from '../pages/AdminPage/ThemPhim';
 import DanhSachNguoiDung from '../pages/AdminPage/DanhSachNguoiDung';
 import QuanLyPhim from '../pages/AdminPage/QuanLyPhim';
-import SignUpPage from '../pages/SignupPage/SignUpPage';
+import LoginRegister from '../pages/LoginRegister/LoginRegister';
+// import SignUpPage from '../pages/SignupPage/SignUpPage';
+// import SignUpPage from '../pages/SignupPage/SignUpPage';
 
 const useRouteCustom = () => {
   const route = useRoutes([
     {
       path: path.homepage,
-      element: <HomeTemplate />,
+      element: <HomeTemplate/>,
       children: [
         {
           index: true,
@@ -51,14 +53,14 @@ const useRouteCustom = () => {
         },
       ],
     },
-    {
-      path: path.login,
-      element: <LoginPage />,
-    },
-    {
-      path: path.signup,
-      element: <SignUpPage />,
-    },
+    // {
+    //   path: path.login,
+    //   element: <LoginPage />,
+    // },
+    // {
+    //   path: path.signup,
+    //   element: <SignUpPage />,
+    // },
     {
       path: path.demo,
       element: <DemoPage />,

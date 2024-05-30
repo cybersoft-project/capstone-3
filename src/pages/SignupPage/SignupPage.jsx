@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { AlertContext } from '../../App';
 import { path } from '../../common/path';
-const SignUpPage = () => {
+const SignupPage = () => {
   // const resetForm = useFormik()
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -153,6 +153,6 @@ const SignUpPage = () => {
   )
 }
 
-export default SignUpPage
+export default SignupPage
 
 

@@ -1,7 +1,8 @@
 import {  useState } from 'react'
 import './loginRegister.scss'
-import SignUpPage from '../SignupPage/SignUpPage';
+import SignupPage from '../SignupPage/SignupPage';
 import SignInPage from '../SignInPage/SignInPage';
+
 
 
 
@@ -123,7 +124,7 @@ const LoginRegister = () => {
   return (
     <div className="body">
       <div className={`containerLayout  ${isActive ? 'active' : ''}`} id="container">
-        <SignUpPage/>
+        <SignupPage/>
         <SignInPage/>
         <div className="toggleContainer">
           <div className="toggle">
