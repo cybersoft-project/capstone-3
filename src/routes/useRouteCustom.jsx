@@ -11,7 +11,7 @@ import AdminTemplate from '../templates/AdminTemplate/AdminTemplate';
 import ThemPhim from '../pages/AdminPage/ThemPhim';
 import DanhSachNguoiDung from '../pages/AdminPage/DanhSachNguoiDung';
 import QuanLyPhim from '../pages/AdminPage/QuanLyPhim';
-import SignUpPage from '../pages/SignupPage/SignUpPage';
+import SignUpPage from '../pages/SignupPage/SignupPage';
 
 const useRouteCustom = () => {
   const route = useRoutes([
