@@ -11,9 +11,13 @@ import AdminTemplate from '../templates/AdminTemplate/AdminTemplate';
 import ThemPhim from '../pages/AdminPage/ThemPhim';
 import DanhSachNguoiDung from '../pages/AdminPage/DanhSachNguoiDung';
 import QuanLyPhim from '../pages/AdminPage/QuanLyPhim';
+<<<<<<< HEAD
 import LoginRegister from '../pages/LoginRegister/LoginRegister';
 // import SignUpPage from '../pages/SignupPage/SignUpPage';
 // import SignUpPage from '../pages/SignupPage/SignUpPage';
+=======
+import SignUpPage from '../pages/SignupPage/SignupPage';
+>>>>>>> cf1f576648b7b9917814b6f56c2f23dfa45316e3
 
 const useRouteCustom = () => {
   const route = useRoutes([
