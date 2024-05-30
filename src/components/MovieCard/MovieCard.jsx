@@ -17,7 +17,7 @@ const MovieCard = ({language = "English", data, toggle,openTrailerModal, trailer
     
   }
   return (
-    <div className="max-w-sm rounded overflow-hidden bg-white group cursor-pointer">
+    <div className="max-w-sm rounded bg-white group cursor-pointer">
       <div className="w-full  h-2/3 overflow-hidden relative">
         <img
           className="w-full object-cover h-full"
