@@ -1,10 +1,6 @@
 import {  useState } from 'react'
 import './loginRegister.scss'
-<<<<<<< HEAD
 import SignupPage from '../SignupPage/SignupPage';
-=======
-import SignUpPage from '../SignupPage/SignupPage';
->>>>>>> cf1f576648b7b9917814b6f56c2f23dfa45316e3
 import SignInPage from '../SignInPage/SignInPage';
 
 

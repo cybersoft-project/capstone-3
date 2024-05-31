@@ -63,7 +63,7 @@ const Payment = () => {
                   {gia}
                 </td>
                 <td className="px-6 py-4">
-                  <button className="border bg-red-500 rounded px-3 py-2" onClick={
+                  <button className="border bg-red-500 text-black rounded px-3 py-2" onClick={
                     () => removeSeat(soGhe)
                   }>Xoá</button>
                 </td>
